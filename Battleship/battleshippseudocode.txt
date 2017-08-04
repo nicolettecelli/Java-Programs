@@ -1,0 +1,25 @@
+// This is the section that 4174075 coded to match the pseudo code provided.
+/* Create a Random object, use a for loop to get a random position between 0 
+     * and 4 for the rows and columns, use a while loop to ensure there's not
+     * already a ship in that position, then set a ship in that position by
+     * making shipLocations[row][column] true. The for loop loops 4 times 
+     * because there are 4 ships.
+     */
+    public void initializeShipLocations()
+    {   
+        Random shipLocation = new Random() ;
+        
+        for (int i = 1; i <= 4; i++) // 4 ships
+        {
+            int row = shipLocation.nextInt(5 - 1) ; // 5 postions, between 0 and 4
+            int column = shipLocation.nextInt(5 - 1) ;
+            
+            while (shipLocations[row][column]) 
+            { // Ensures every ship will be placed in a different index
+                 row = shipLocation.nextInt(5 - 1) ;
+                 column = shipLocation.nextInt(5 - 1) ;                
+            }
+            
+            shipLocations[row][column] = true ;
+        }      
+    }
